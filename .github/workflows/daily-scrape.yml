@@ -2,8 +2,7 @@ name: Daily Job Scrape
 
 on:
   schedule:
-    # Runs every day at 08:00 UTC
-    - cron: '0 8 * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch: # Allows manual trigger
 
 jobs:

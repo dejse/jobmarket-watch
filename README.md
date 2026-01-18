@@ -4,7 +4,7 @@ To Dos:
 
 - [x] scrapper
 - [] plotly viz
-- [] github action?
+- [x] github action?
 - [] simple django setup
 - [] data into sqlite
 - [] frontend
