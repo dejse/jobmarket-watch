@@ -3,8 +3,8 @@
 To Dos:
 
 - [x] scrapper
-- [] plotly viz
+- [x] plotly viz
 - [x] github action?
-- [] simple django setup
-- [] data into sqlite
-- [] frontend
+- [ ] simple django setup
+- [ ] data into sqlite
+- [ ] frontend
