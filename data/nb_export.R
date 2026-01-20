@@ -113,3 +113,23 @@ df
 
 # Save to CSV
 write_csv(df, "./data/data.csv")
+
+# Create visualization
+ggplot(
+  df,
+  aes(x = as.Date(date), y = job_count, color = location, fill = location)
+) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2, shape = 21, color = "white") +
+  labs(
+    title = "Controller Job Postings Over Time by Location",
+    x = "Date",
+    y = "Job Count",
+    color = "Location",
+    fill = "Location"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "bottom"
+  )
