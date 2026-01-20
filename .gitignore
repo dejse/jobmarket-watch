@@ -8,6 +8,4 @@ wheels/
 
 # Virtual environments
 .venv
-
-marimo.py.json
-__marimo__
+db.sqlite3
