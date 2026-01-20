@@ -26,9 +26,9 @@ try:
     df = pd.read_csv("./data/data.csv")
 except FileNotFoundError:
     df = pd.DataFrame(
-        columns=["date", "title", "location", "job_count"],
+        columns=["date", "location", "job_count"],
     )
-    df = df.astype({"date": str, "title": str, "location": str, "job_count": int})
+    df = df.astype({"date": str, "location": str, "job_count": int})
 
 # %%
 for link in link_list:
@@ -36,7 +36,7 @@ for link in link_list:
     max_retries = 3
 
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
 
     for attempt in range(max_retries):
@@ -67,7 +67,6 @@ for link in link_list:
     location = link.split("/")[-1]
     new_row = {
         "date": today,
-        "title": title,
         "location": location.capitalize(),
         "job_count": job_count,
     }
