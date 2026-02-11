@@ -1,92 +1,34 @@
 # Job Market Watch Austria
 
-A Django web application that tracks and visualizes job market data for Controller positions across Austrian cities, scraped from Karriere.at.
+A simple automated job market tracker that monitors Controller positions across Austrian cities on Karriere.at. The project uses a GitHub Action to scrape job data daily and stores the results in a CSV file.
 
-## Features
+## Overview
 
-- 📊 Interactive dashboard with Plotly visualizations
-- 📈 Historical trend analysis for job counts
-- 🏙️ City-specific detailed views
-- 🔄 Automated data scraping via GitHub Actions
-- 💾 SQLite database for persistent storage
-- 🎨 Modern, responsive UI
+This repository contains a daily scraping job that tracks the number of Controller job postings in major Austrian cities (Wien, Linz, Salzburg, Graz, Innsbruck, and Vorarlberg). The data is automatically collected every day and visualized to show trends over time.
 
-## Setup
+![Controller Jobs Trend](data/plot.png)
 
-### Prerequisites
+## How It Works
 
-- Python 3.14+
-- `uv` package manager
-
-### Installation
-
-1. Install dependencies:
-```bash
-uv sync
-```
-
-2. Run database migrations:
-```bash
-python manage.py migrate
-```
-
-3. Import existing CSV data:
-```bash
-python manage.py import_csv
-```
-
-4. Create a superuser (optional, for admin access):
-```bash
-python manage.py createsuperuser
-```
-
-5. Run the development server:
-```bash
-python manage.py runserver
-```
-
-6. Open your browser and visit:
-   - Dashboard: http://localhost:8000/
-   - Admin panel: http://localhost:8000/admin/
-
-## Usage
-
-### Importing Data
-
-To import or update job market data from the CSV file:
-
-```bash
-python manage.py import_csv
-```
-
-To clear existing data and import fresh:
-
-```bash
-python manage.py import_csv --clear
-```
-
-To import from a custom CSV file:
-
-```bash
-python manage.py import_csv --file path/to/your/data.csv
-```
-
-### Automated Scraping
-
-The project includes GitHub Actions workflows that automatically scrape job data daily and update the CSV file.
+- **Automated Scraping**: A GitHub Action runs daily to scrape job counts from Karriere.at
+- **Data Storage**: Results are appended to `data/data.csv`
+- **Visualization**: Python script generates trend plots using Plotly
 
 ## Project Structure
 
-- `jobmarket_watch/` - Django project settings
-- `dashboard/` - Main Django app with models, views, and templates
-- `data/` - CSV data files and scraping notebooks
-- `.github/workflows/` - GitHub Actions for automated scraping
+- `data/` - Contains the CSV data file and generated visualizations
+- `.github/workflows/` - GitHub Actions workflow for daily scraping
+- `scrape.py` - Main scraping script
 
-## To Dos
+## Data Format
 
-- [x] scrapper
-- [x] plotly viz
-- [x] github action
-- [x] simple django setup
-- [x] data into sqlite
-- [x] frontend
+The CSV file contains the following columns:
+- `date` - Date of the scrape
+- `location` - City name
+- `job_count` - Number of Controller job postings
+
+## Requirements
+
+- Python 3.14+
+- `uv` package manager
+- Dependencies managed in `pyproject.toml`
