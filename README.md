@@ -1,5 +1,7 @@
 # Job Market Watch Austria
 
+*Disclaimer: This project is completely vibe coded and served as a playground for me to test AI agents like Claude code and the Cursor IDE*
+
 A simple automated job market tracker that monitors Controller positions across Austrian cities on Karriere.at. The project uses a GitHub Action to scrape job data daily and stores the results in a CSV file.
 
 ## Overview
