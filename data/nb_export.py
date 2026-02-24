@@ -73,7 +73,44 @@ for link in link_list:
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
 # %%
-df
+# df
 
 # %%
 df.to_csv("./data/data.csv", index=False)
+
+
+# %% 
+import plotly.express as px
+
+fig = px.line(
+    df,
+    x="date",
+    y="job_count",
+    color="location",
+    title="Controller Jobs laut Karriere.at",
+    labels={"date": "Date", "job_count": "Job Count", "location": "Location"},
+    markers=True,
+    template="plotly_white",
+)
+
+fig.update_layout(
+    hovermode="x unified",
+    font=dict(family="Arial, sans-serif", size=12),
+    title_font=dict(size=18, color="#2C3E50"),
+    xaxis_title_font=dict(size=14, color="#34495E"),
+    yaxis_title_font=dict(size=14, color="#34495E"),
+    width=800,
+    height=500,
+    plot_bgcolor="rgba(240, 240, 240, 0.5)",
+    paper_bgcolor="white",
+)
+
+fig.update_traces(line=dict(width=2.5))
+
+# fig.show()
+
+
+# %%
+fig.write_image("./plot.png", format="png")
+
+
