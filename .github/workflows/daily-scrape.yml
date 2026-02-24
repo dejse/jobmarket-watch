@@ -41,9 +41,10 @@ jobs:
       - name: Commit and push if data changed
         run: |
           git add data/data.csv
+          git add data/plot.png
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update data.csv - $(date +'%Y-%m-%d')"
+            git commit -m "Auto-update data.csv and plot.png - $(date +'%Y-%m-%d')"
             git push
           fi
