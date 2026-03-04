@@ -111,6 +111,6 @@ fig.update_traces(line=dict(width=2.5))
 
 
 # %%
-fig.write_image("./plot.png", format="png")
+fig.write_image("./data/plot.png", format="png")
 
 
